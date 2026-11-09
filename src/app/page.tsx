@@ -5,6 +5,7 @@ import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
+import Testimonials from "@/components/Testimonials";
 import LajuPlus from "@/components/LajuPlus";
 import JacketShowcase from "@/components/JacketShowcase";
 import Partner from "@/components/Partner";
@@ -22,6 +23,7 @@ export default function Home() {
         <Services />
         <HowItWorks />
         <Features />
+        <Testimonials />
         <LajuPlus />
         <JacketShowcase />
         <Partner />
