@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { MenuToggle } from "@/components/ui/menu-toggle";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#layanan", label: "Layanan" },
@@ -49,50 +51,51 @@ export default function Header() {
             <ArrowUpRight className="size-4" />
           </a>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobileNav"
-            aria-label={open ? "Tutup menu" : "Buka menu"}
-            className="grid size-10 place-items-center rounded-xl border border-hairline lg:hidden"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+          <div className="grid size-10 place-items-center rounded-xl border border-hairline lg:hidden">
+            <MenuToggle
+              open={open}
+              onOpenChange={setOpen}
+              aria-label={open ? "Tutup menu" : "Buka menu"}
+              strokeWidth={2}
+              className="size-5"
+            />
+          </div>
         </div>
       </div>
 
-      {open && (
-        <nav
-          id="mobileNav"
-          aria-label="Navigasi seluler"
-          className="border-t border-hairline bg-paper lg:hidden"
-        >
-          <ul className="grid gap-1 px-5 py-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li className="mt-2">
+      <nav
+        id="mobileNav"
+        aria-label="Navigasi seluler"
+        inert={!open}
+        className={cn(
+          "max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-out lg:hidden",
+          open && "max-h-96 border-t border-hairline opacity-100"
+        )}
+      >
+        <ul className="grid gap-1 bg-paper px-5 py-4">
+          {navLinks.map((link) => (
+            <li key={link.href}>
               <a
-                href="#unduh"
+                href={link.href}
                 onClick={() => setOpen(false)}
-                className={buttonVariants({ className: "h-11 w-full rounded-xl font-bold" })}
+                className="block rounded-xl px-3 py-3 font-semibold text-ink hover:bg-surface"
               >
-                Unduh aplikasi
-                <ArrowUpRight className="size-4" />
+                {link.label}
               </a>
             </li>
-          </ul>
-        </nav>
-      )}
+          ))}
+          <li className="mt-2">
+            <a
+              href="#unduh"
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ className: "h-11 w-full rounded-xl font-bold" })}
+            >
+              Unduh aplikasi
+              <ArrowUpRight className="size-4" />
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

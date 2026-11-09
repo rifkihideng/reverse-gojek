@@ -898,7 +898,13 @@ export function ClothingRailHero({
     if (p.id !== event.pointerId) return;
     const s = sim.current;
     const stage = stageRef.current;
-    if (stage?.hasPointerCapture(event.pointerId)) stage.releasePointerCapture(event.pointerId);
+    if (stage?.hasPointerCapture(event.pointerId)) {
+      try {
+        stage.releasePointerCapture(event.pointerId);
+      } catch {
+        // Pointer capture may already be implicitly released by the browser.
+      }
+    }
     pointer.current = { ...p, id: -1 };
     if (s.drag >= 0) {
       s.drag = -1;

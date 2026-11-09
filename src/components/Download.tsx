@@ -24,7 +24,9 @@ export default function Download() {
 
               <div className="mt-10 flex flex-wrap gap-3">
                 <a
-                  href="#"
+                  href="https://play.google.com/store/search?q=Laju&c=apps"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={buttonVariants({
                     className: "h-12 gap-3 rounded-xl px-5 font-bold",
                   })}
@@ -38,7 +40,9 @@ export default function Download() {
                   </span>
                 </a>
                 <a
-                  href="#"
+                  href="https://apps.apple.com/id/search?term=Laju"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={buttonVariants({
                     variant: "outline",
                     className:
