@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#keunggulan", label: "Keunggulan" },
   { href: "#langganan", label: "Langganan" },
   { href: "#mitra", label: "Jadi Mitra" },
+  { href: "/daftar-mitra", label: "Daftar Mitra" },
 ];
 
 export default function Header() {
