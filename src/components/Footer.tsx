@@ -1,15 +1,33 @@
 const footerColumns = [
   {
     title: "Perusahaan",
-    links: ["Tentang Kami", "Karier", "Blog", "Media"],
+    links: [
+      { label: "Tentang Kami", href: "/tentang-kami" },
+      { label: "Karier", href: "/karier" },
+      { label: "Daftar Mitra", href: "/daftar-mitra" },
+      { label: "Blog", href: "/blog" },
+      { label: "Media", href: "/media" },
+    ],
   },
   {
     title: "Layanan",
-    links: ["LajuRide", "LajuFood", "LajuSend", "LajuPay", "LajuMart", "LajuCare"],
+    links: [
+      { label: "LajuRide", href: "#layanan" },
+      { label: "LajuFood", href: "#layanan" },
+      { label: "LajuSend", href: "#layanan" },
+      { label: "LajuPay", href: "#layanan" },
+      { label: "LajuMart", href: "#layanan" },
+      { label: "LajuCare", href: "#layanan" },
+    ],
   },
   {
     title: "Dukungan",
-    links: ["Pusat Bantuan", "Syarat & Ketentuan", "Kebijakan Privasi", "Hubungi Kami"],
+    links: [
+      { label: "Pusat Bantuan", href: "#cara-kerja" },
+      { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
+      { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
+      { label: "Hubungi Kami", href: "mailto:halo@laju.app" },
+    ],
   },
 ];
 
@@ -35,12 +53,12 @@ export default function Footer() {
             </h4>
             <ul className="mt-5 grid gap-3">
               {column.links.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <a
-                    href="#"
+                    href={link.href}
                     className="text-sm text-paper/60 transition-colors hover:text-paper"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
