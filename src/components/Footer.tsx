@@ -23,10 +23,10 @@ const footerColumns = [
   {
     title: "Dukungan",
     links: [
-      { label: "Pusat Bantuan", href: "#cara-kerja" },
+      { label: "Pusat Bantuan", href: "/pusat-bantuan" },
       { label: "Syarat & Ketentuan", href: "/syarat-ketentuan" },
       { label: "Kebijakan Privasi", href: "/kebijakan-privasi" },
-      { label: "Hubungi Kami", href: "mailto:halo@laju.app" },
+      { label: "Hubungi Kami", href: "/hubungi-kami" },
     ],
   },
 ];
