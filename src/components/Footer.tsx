@@ -4,6 +4,7 @@ const footerColumns = [
     links: [
       { label: "Tentang Kami", href: "/tentang-kami" },
       { label: "Karier", href: "/karier" },
+      { label: "Daftar Mitra", href: "/daftar-mitra" },
       { label: "Blog", href: "/blog" },
       { label: "Media", href: "/media" },
     ],
